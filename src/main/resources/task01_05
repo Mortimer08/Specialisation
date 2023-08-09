@@ -1,0 +1,14 @@
+# 1
+ cat > "Домашние животные"
+ cat > "Вьючные животные"
+ cat "Вьючные животные" >> "Домашние животные" 
+ mv "Домашние животные" "Друзья человека"
+ cat "Друзья человека"
+# 2
+ mkdir files
+ mv "Друзья человека" files/
+# 3, 4
+ sudo dpkg -i /home/vbuser/Downloads/mysql-apt-config_0.8.26-1_all.deb
+ sudo apt update 
+ sudo apt install mysql-server
+ sudo dpkg -r mysql-server
