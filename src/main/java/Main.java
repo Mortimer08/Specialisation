@@ -20,6 +20,7 @@ public class Main {
         beast2.addSkill(new Stop());
         dog1.showSkills();
         beast2.showSkills();
+        pet1.showSkills();
         reg.addAnimal(pet1);
         reg.addAnimal(beast2);
         reg.addAnimal(dog1);
