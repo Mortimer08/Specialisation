@@ -1,9 +1,8 @@
+import Data.RegistryObject;
 import Skills.Go;
 import Skills.Stop;
 import Skills.Voice;
 import animals.*;
-import animals.animalGroups.BeastOfBurden;
-import animals.animalGroups.Pet;
 import animals.animalTypes.Cat;
 import animals.animalTypes.Dog;
 import animals.animalTypes.Horse;
@@ -13,7 +12,7 @@ public class Main {
         Animal dog1 = new Dog("Polkan");
         Animal pet1 = new Cat("Timofey");
         Animal beast2 = new Horse("Beast");
-        Registry reg = new Registry();
+        RegistryObject reg = new RegistryObject();
         dog1.addSkill(new Voice());
         dog1.addSkill(new Go());
         beast2.addSkill(new Go());

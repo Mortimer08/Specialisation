@@ -5,8 +5,11 @@ import mvp.Presenter;
 public class ConsoleView implements UserInteraction {
     private Presenter presenter;
     public boolean keepRunning;
-    public void start(){
 
+    public void start() {
+        while (keepRunning) {
+
+        }
     }
 
     @Override

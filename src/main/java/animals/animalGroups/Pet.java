@@ -1,15 +1,23 @@
 package animals.animalGroups;
 
 import animals.Animal;
+import animals.animalTypes.*;
 
-public class Pet extends Animal {
+import java.util.ArrayList;
 
-    public Pet(String name) {
-        super(name);
-        super.groupName = "Pet";
+public class Pet extends AnimalGroup {
+    public Pet() {
+        super("Pet");
+        super.animalTypes = new ArrayList<>();
+        this.addType(new Dog());
+        this.addType(new Cat());
+        this.addType(new Hamster());
     }
-    public void setAnimalType(String animalType){
+    public void addType(AnimalType animalType){
+        animalTypes.add(animalType);
+    }
+/*    public void setAnimalType(String animalType) {
         super.typeName = animalType;
-    }
+    }*/
 
 }

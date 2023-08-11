@@ -2,9 +2,9 @@ package animals.animalTypes;
 
 import animals.animalGroups.Pet;
 
-public class Cat extends Pet {
-    public Cat(String name) {
-        super(name);
-        super.setAnimalType("Cat");
+public class Cat extends AnimalType {
+    public Cat() {
+        super("Cat");
+//        super.setAnimalType("Cat");
     }
 }
