@@ -46,7 +46,7 @@ public class Animal {
         System.out.printf("%s can:%n", this.getName());
         int skillsNumber = 1;
         for (Skill skill : skills) {
-            System.out.printf("/t%d. %s/n", skillsNumber++, skill.getSkillName());
+            System.out.printf("\t%d. %s\n", skillsNumber++, skill.getSkillName());
         }
     }
 
