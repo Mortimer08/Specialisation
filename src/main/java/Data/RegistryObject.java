@@ -54,8 +54,21 @@ public class RegistryObject implements Registry {
         }
     }
 
+    public void addAnimal(String type, String name) {
+        for (AnimalGroup nextGroup: this.groups) {
+//            if (nextGroup != null) {
+                AnimalType nextType = nextGroup.getType(type);
+                if (nextType != null) {
+                    this.addAnimal(new Animal(nextType, nextGroup, name));
+                    System.out.println("Animal Added");
+//                }
+            }
+        }
+    }
+
     @Override
     public AnimalGroup findGroup(Animal animal) {
+
         return null;
     }
 

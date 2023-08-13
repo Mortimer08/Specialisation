@@ -14,6 +14,10 @@ public class Presenter {
         model.addAnimal(group, type, name);
     }
 
+    public void addAnimal(String type, String name) {
+        model.addAnimal(type, name);
+    }
+
     public String getAnimalsList() {
         return model.getAnimalsList();
     }

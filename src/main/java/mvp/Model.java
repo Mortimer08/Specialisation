@@ -15,15 +15,17 @@ public class Model {
         System.out.printf("Animal %s added", animal.getName());
     }
 
+    public void addAnimal(String group, String type, String name) {
+        animalRegistry.addAnimal(group, type, name);
+    }
+    public void addAnimal(String type, String name) {
+        animalRegistry.addAnimal(type, name);
+    }
     public String getAnimalSkills(Animal animal) {
         return animal.getSkills();
     }
 
     public String getAnimalsList() {
         return animalRegistry.getAnimalsList();
-    }
-
-    public void addAnimal(String group, String type, String name) {
-        animalRegistry.addAnimal(group, type, name);
     }
 }

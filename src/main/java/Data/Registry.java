@@ -13,6 +13,8 @@ public interface Registry {
 
     void addAnimal(String group, String type, String name);
 
+    void addAnimal(String type, String name);
+
     AnimalGroup findGroup(Animal animal);
 
     AnimalGroup findGroup();
