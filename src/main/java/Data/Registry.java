@@ -7,6 +7,7 @@ import animals.animalGroups.AnimalGroup;
 import animals.animalTypes.AnimalType;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public interface Registry {
     void addAnimal(Animal animal);
@@ -30,4 +31,6 @@ public interface Registry {
     public AnimalGroup getGroup(AnimalGroup group);
 
     public AnimalGroup getGroup(String group);
+
+    HashMap<Integer, Animal> getAnimalMap();
 }

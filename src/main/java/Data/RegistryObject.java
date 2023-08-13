@@ -7,10 +7,13 @@ import animals.animalGroups.AnimalGroup;
 import animals.animalTypes.AnimalType;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class RegistryObject implements Registry {
-
-    final ArrayList<Animal> registry = new ArrayList<Animal>();
+    Integer animalID = 1;
+    final HashMap<Integer, Animal> registryMap = new HashMap<>();
+    final ArrayList<Animal> registry = new ArrayList<>();
     final ArrayList<AnimalGroup> groups = new ArrayList<>();
 
     public RegistryObject() {
@@ -30,9 +33,14 @@ public class RegistryObject implements Registry {
         return registry;
     }
 
+    public HashMap<Integer, Animal> getAnimalMap(){
+        return registryMap;
+    }
+
     @Override
     public void addAnimal(Animal animal) {
         registry.add(animal);
+        registryMap.put(animalID++, animal);
     }
 
     public void addAnimal(String group, String type, String name) {
@@ -49,6 +57,7 @@ public class RegistryObject implements Registry {
         for (AnimalGroup nextGroup : this.groups) {
             AnimalType nextType = nextGroup.getType(type);
             if (nextType != null) {
+
                 this.addAnimal(new Animal(nextType, nextGroup, name));
             }
         }

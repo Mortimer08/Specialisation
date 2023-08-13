@@ -60,7 +60,6 @@ public class Animal {
     }
 
     public String getSkills() {
-//        System.out.printf("%s can:\n", this.getName());
         int skillsNumber = 1;
         StringBuilder skillsList = new StringBuilder();
         for (Skill skill : skills) {

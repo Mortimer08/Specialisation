@@ -3,6 +3,7 @@ package mvp;
 import animals.Animal;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Presenter {
     private Model model;
@@ -24,5 +25,8 @@ public class Presenter {
 
     public ArrayList<Animal> getAnimalsList() {
         return model.getAnimalsList();
+    }
+    public HashMap<Integer, Animal> getAnimalsMap() {
+        return model.getAnimalMap();
     }
 }

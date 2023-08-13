@@ -4,6 +4,7 @@ import animals.Animal;
 import mvp.Presenter;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ConsoleView implements UserInteraction {
     private Presenter presenter;
@@ -20,7 +21,10 @@ public class ConsoleView implements UserInteraction {
             presenter.addAnimal("Cat", "Fluff");
             presenter.addAnimal("Horse", "Beast");
             presenter.addAnimal("Donkey", "Ear");
-            this.showAnimalsList(presenter.getAnimalsList());
+            presenter.addAnimal("Pet", "Dog", "Polkan");
+            this.showAnimalsMap(presenter.getAnimalsMap());
+            Animal dog = presenter.getAnimalsMap().get(1);
+            System.out.println(dog.getName());
             keepRunning = false;
         }
     }
@@ -42,5 +46,17 @@ public class ConsoleView implements UserInteraction {
         System.out.println(animalsList.toString());
 
     }
+    public void showAnimalsMap(HashMap<Integer, Animal> map) {
+        StringBuilder animalsList = new StringBuilder();
 
+        for (Integer number: map.keySet()) {
+            Animal animal = map.get(number);
+            animalsList.append(String.format("\t%d. ", number));
+            animalsList.append(String.format("%s, %s, ", animal.getName(), animal.getGroupName()));
+            animalsList.append(String.format("%s%n", animal.getTypeName()));
+        }
+        System.out.println("Animals in registry:");
+        System.out.println(animalsList.toString());
+
+    }
 }
