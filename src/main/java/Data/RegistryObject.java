@@ -1,5 +1,7 @@
 package Data;
 
+import Skills.Skill;
+import Skills.SkillsList;
 import animals.Animal;
 import animals.animalGroups.AnimalGroup;
 import animals.animalTypes.AnimalType;
@@ -31,7 +33,7 @@ public class RegistryObject implements Registry {
         int skillsNumber = 1;
         StringBuilder animalsList = new StringBuilder();
         for (Animal animal : registry) {
-            animalsList.append(String.format("%s, %s, %s%n", animal.getName(), animal.getGroupName(), animal.getType()));
+            animalsList.append(String.format("%s, %s, %s%n", animal.getName(), animal.getGroupName(), animal.getTypeName()));
         }
         return animalsList.toString();
     }
@@ -39,6 +41,37 @@ public class RegistryObject implements Registry {
     @Override
     public void addAnimal(Animal animal) {
         registry.add(animal);
+    }
+
+    public void addAnimal(String group, String type, String name) {
+        AnimalGroup nextGroup = this.getGroup(group);
+        if (nextGroup != null) {
+            AnimalType nextType = nextGroup.getType(type);
+            if (nextType != null) {
+                this.addAnimal(new Animal(nextType, nextGroup, name));
+                System.out.println("Animal Added");
+            }
+        }
+    }
+
+    @Override
+    public AnimalGroup findGroup(Animal animal) {
+        return null;
+    }
+
+    @Override
+    public AnimalGroup findGroup() {
+        return null;
+    }
+
+    @Override
+    public SkillsList getSkillsList(Animal animal) {
+        return null;
+    }
+
+    @Override
+    public void teachCommand(Animal animal, Skill skill) {
+
     }
 
     public ArrayList<AnimalGroup> getGroups() {

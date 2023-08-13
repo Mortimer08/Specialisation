@@ -6,9 +6,10 @@ import java.util.ArrayList;
 
 public class AnimalGroup {
     protected ArrayList<AnimalType> animalTypes;
-    public String name;
+    private String name;
 
     public AnimalGroup(String name) {
+        animalTypes = new ArrayList<>();
         this.name = name;
     }
 
@@ -33,4 +34,6 @@ public class AnimalGroup {
         }
         return null;
     }
+
+
 }

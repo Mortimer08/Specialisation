@@ -5,6 +5,16 @@ public class Presenter {
     private View view;
 
     public Presenter(View view, Model model) {
+        this.view = view;
+        this.model = model;
         view.setPresenter(this);
+    }
+
+    public void addAnimal(String group, String type, String name) {
+        model.addAnimal(group, type, name);
+    }
+
+    public String getAnimalsList() {
+        return model.getAnimalsList();
     }
 }

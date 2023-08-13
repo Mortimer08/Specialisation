@@ -4,10 +4,7 @@ import UserInterface.ConsoleView;
 import UserInterface.UserInteraction;
 
 public class View {
-    private UserInteraction userInteraction;
-    public View() {
-        UserInteraction userInteraction = new ConsoleView();
-    }
+    private UserInteraction userInteraction = new ConsoleView();
 
     public void start() {
         userInteraction.start();

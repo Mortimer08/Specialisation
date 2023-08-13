@@ -56,7 +56,7 @@ public class Animal {
     }
 
     public String getGroupName() {
-        return group.name;
+        return group.getName();
     }
 
     public String getSkills() {
