@@ -24,7 +24,7 @@ public class Animal {
         this.group = animalGroup;
         this.type = animalType;
         this.name = animalName;
-
+        this.skills = new ArrayList<Skill>();
     }
 
     public String getName() {
@@ -46,9 +46,11 @@ public class Animal {
     public AnimalType getType() {
         return this.type;
     }
-public String getTypeName(){
+
+    public String getTypeName() {
         return this.type.name;
-}
+    }
+
     public AnimalGroup getGroup() {
         return this.group;
     }

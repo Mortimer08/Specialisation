@@ -5,4 +5,7 @@ public class AnimalType {
     public AnimalType(String typeName){
         this.name = typeName;
     }
+    public String getName(){
+        return name;
+    }
 }
