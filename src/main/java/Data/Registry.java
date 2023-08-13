@@ -23,7 +23,7 @@ public interface Registry {
 
     void teachCommand(Animal animal, Skill skill);
 
-    String getAnimalsList();
+    ArrayList<Animal> getAnimalsList();
 
     ArrayList<AnimalGroup> getGroups();
 

@@ -4,6 +4,8 @@ import Data.Registry;
 import Data.RegistryObject;
 import animals.Animal;
 
+import java.util.ArrayList;
+
 public class Model {
     private final Registry animalRegistry = new RegistryObject();
 
@@ -25,7 +27,7 @@ public class Model {
         return animal.getSkills();
     }
 
-    public String getAnimalsList() {
+    public ArrayList<Animal> getAnimalsList() {
         return animalRegistry.getAnimalsList();
     }
 }

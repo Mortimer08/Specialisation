@@ -1,5 +1,9 @@
 package mvp;
 
+import animals.Animal;
+
+import java.util.ArrayList;
+
 public class Presenter {
     private Model model;
     private View view;
@@ -18,7 +22,7 @@ public class Presenter {
         model.addAnimal(type, name);
     }
 
-    public String getAnimalsList() {
+    public ArrayList<Animal> getAnimalsList() {
         return model.getAnimalsList();
     }
 }

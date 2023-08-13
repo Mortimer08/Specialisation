@@ -5,6 +5,7 @@ import Skills.SkillsList;
 import animals.Animal;
 import animals.animalGroups.AnimalGroup;
 import animals.animalTypes.AnimalType;
+
 import java.util.ArrayList;
 
 public class RegistryObject implements Registry {
@@ -25,17 +26,8 @@ public class RegistryObject implements Registry {
         pet.addType(new AnimalType("Hamster"));
     }
 
-    public ArrayList<Animal> getAnimalList() {
+    public ArrayList<Animal> getAnimalsList() {
         return registry;
-    }
-
-    public String getAnimalsList() {
-        int skillsNumber = 1;
-        StringBuilder animalsList = new StringBuilder();
-        for (Animal animal : registry) {
-            animalsList.append(String.format("%s, %s, %s%n", animal.getName(), animal.getGroupName(), animal.getTypeName()));
-        }
-        return animalsList.toString();
     }
 
     @Override
@@ -49,19 +41,15 @@ public class RegistryObject implements Registry {
             AnimalType nextType = nextGroup.getType(type);
             if (nextType != null) {
                 this.addAnimal(new Animal(nextType, nextGroup, name));
-                System.out.println("Animal Added");
             }
         }
     }
 
     public void addAnimal(String type, String name) {
-        for (AnimalGroup nextGroup: this.groups) {
-//            if (nextGroup != null) {
-                AnimalType nextType = nextGroup.getType(type);
-                if (nextType != null) {
-                    this.addAnimal(new Animal(nextType, nextGroup, name));
-                    System.out.println("Animal Added");
-//                }
+        for (AnimalGroup nextGroup : this.groups) {
+            AnimalType nextType = nextGroup.getType(type);
+            if (nextType != null) {
+                this.addAnimal(new Animal(nextType, nextGroup, name));
             }
         }
     }
