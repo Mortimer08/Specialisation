@@ -1,6 +1,6 @@
-package UserInterface.MainMenu;
+package userInterface.mainMenu;
 
-import UserInterface.Menu;
+import userInterface.Menu;
 
 public class MainMenu extends Menu {
     public MainMenu(){

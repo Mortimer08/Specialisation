@@ -1,6 +1,6 @@
-package UserInterface;
+package userInterface;
 
-import UserInterface.Commands.MenuCommand;
+import userInterface.commands.MenuCommand;
 
 import java.util.ArrayList;
 

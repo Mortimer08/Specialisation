@@ -1,7 +1,7 @@
 package mvp;
 
-import UserInterface.ConsoleView;
-import UserInterface.UserInteraction;
+import userInterface.ConsoleView;
+import userInterface.UserInteraction;
 
 public class View {
     private UserInteraction userInteraction = new ConsoleView();

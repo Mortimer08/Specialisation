@@ -1,10 +1,8 @@
-package UserInterface;
+package userInterface;
 
-import animals.Animal;
 import mvp.Presenter;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class ConsoleView implements UserInteraction {
     private Presenter presenter;
@@ -22,9 +20,10 @@ public class ConsoleView implements UserInteraction {
             presenter.addAnimal("Horse", "Beast");
             presenter.addAnimal("Donkey", "Ear");
             presenter.addAnimal("Pet", "Dog", "Polkan");
-            this.showAnimalsMap(presenter.getAnimalsMap());
-            Animal dog = presenter.getAnimalsMap().get(1);
-            System.out.println(dog.getName());
+            showAnimals();
+
+            presenter.addSkill(1,"Voice", "Saying woof");
+            showSkills(1);
             keepRunning = false;
         }
     }
@@ -34,7 +33,7 @@ public class ConsoleView implements UserInteraction {
         this.presenter = presenter;
     }
 
-    public void showAnimalsList(ArrayList<Animal> list) {
+    /*public void showAnimalsList(ArrayList<Animal> list) {
         int skillsNumber = 1;
         StringBuilder animalsList = new StringBuilder();
         for (Animal animal : list) {
@@ -45,18 +44,11 @@ public class ConsoleView implements UserInteraction {
         System.out.println("Animals in registry:");
         System.out.println(animalsList.toString());
 
+    }*/
+    public void showAnimals() {
+        System.out.println(presenter.getAnimals());
     }
-    public void showAnimalsMap(HashMap<Integer, Animal> map) {
-        StringBuilder animalsList = new StringBuilder();
-
-        for (Integer number: map.keySet()) {
-            Animal animal = map.get(number);
-            animalsList.append(String.format("\t%d. ", number));
-            animalsList.append(String.format("%s, %s, ", animal.getName(), animal.getGroupName()));
-            animalsList.append(String.format("%s%n", animal.getTypeName()));
-        }
-        System.out.println("Animals in registry:");
-        System.out.println(animalsList.toString());
-
+    public void showSkills(Integer animalNumber){
+        System.out.println(presenter.getSkillsList(animalNumber));
     }
 }

@@ -1,6 +1,6 @@
 package animals;
 
-import Skills.Skill;
+import skills.Skill;
 import animals.animalGroups.AnimalGroup;
 import animals.animalTypes.AnimalType;
 
@@ -59,13 +59,8 @@ public class Animal {
         return group.getName();
     }
 
-    public String getSkills() {
-        int skillsNumber = 1;
-        StringBuilder skillsList = new StringBuilder();
-        for (Skill skill : skills) {
-            skillsList.append(String.format("\t%d. %s\n", skillsNumber++, skill.getSkillName()));
-        }
-        return skillsList.toString();
+    public ArrayList<Skill> getSkills() {
+        return skills;
     }
 
     public void addSkill(Skill skill) {

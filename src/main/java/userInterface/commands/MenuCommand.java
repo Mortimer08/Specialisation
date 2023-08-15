@@ -1,4 +1,4 @@
-package UserInterface.Commands;
+package userInterface.commands;
 
 public class MenuCommand {
     public String name;

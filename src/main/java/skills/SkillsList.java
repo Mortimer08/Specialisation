@@ -1,4 +1,4 @@
-package Skills;
+package skills;
 
 import java.util.ArrayList;
 

@@ -1,13 +1,8 @@
 package mvp;
 
-import animals.Animal;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-
 public class Presenter {
-    private Model model;
-    private View view;
+    private final Model model;
+    private final View view;
 
     public Presenter(View view, Model model) {
         this.view = view;
@@ -23,10 +18,21 @@ public class Presenter {
         model.addAnimal(type, name);
     }
 
+    public String getSkillsList(Integer animalNumber) {
+        return model.getAnimalSkills(animalNumber);
+    }
+
+    public void addSkill(Integer animalNumber, String skillName, String skillDescription) {
+        model.addSkill(animalNumber, skillName, skillDescription);
+    }
+
+/*
     public ArrayList<Animal> getAnimalsList() {
         return model.getAnimalsList();
     }
-    public HashMap<Integer, Animal> getAnimalsMap() {
-        return model.getAnimalMap();
+*/
+
+    public String getAnimals() {
+        return model.getAnimals();
     }
 }

@@ -1,14 +1,13 @@
-package Data;
+package data;
 
-import Skills.Skill;
-import Skills.SkillsList;
+import skills.Skill;
 import animals.Animal;
 import animals.animalGroups.AnimalGroup;
 import animals.animalTypes.AnimalType;
 
+import javax.xml.crypto.Data;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 public class RegistryObject implements Registry {
     Integer animalID = 1;
@@ -33,7 +32,7 @@ public class RegistryObject implements Registry {
         return registry;
     }
 
-    public HashMap<Integer, Animal> getAnimalMap(){
+    public HashMap<Integer, Animal> getAnimalMap() {
         return registryMap;
     }
 
@@ -64,37 +63,8 @@ public class RegistryObject implements Registry {
     }
 
     @Override
-    public AnimalGroup findGroup(Animal animal) {
-
-        return null;
-    }
-
-    @Override
-    public AnimalGroup findGroup() {
-        return null;
-    }
-
-    @Override
-    public SkillsList getSkillsList(Animal animal) {
-        return null;
-    }
-
-    @Override
-    public void teachCommand(Animal animal, Skill skill) {
-
-    }
-
-    public ArrayList<AnimalGroup> getGroups() {
-        return groups;
-    }
-
-    public AnimalGroup getGroup(AnimalGroup group) {
-        for (AnimalGroup nextGroup : groups) {
-            if (nextGroup.equals(group)) {
-                return nextGroup;
-            }
-        }
-        return null;
+    public ArrayList<Skill> getSkillsList(Animal animal) {
+        return animal.getSkills();
     }
 
     public AnimalGroup getGroup(String group) {
@@ -106,4 +76,21 @@ public class RegistryObject implements Registry {
         return null;
     }
 
+    public void setBirthDay(Integer number, Data birthday) {
+        this.registryMap.get(number).setBirthDay(birthday);
+    }
+
+    public Data getBirthday(Integer number) {
+        return this.registryMap.get(number).getBirthDay();
+    }
+
+    public void addSkill(Animal animal, String skillName, String skillDescription) {
+        ArrayList<Skill> skillsList = animal.getSkills();
+        for (Skill skill : skillsList) {
+            if (skill.getSkillName().equals(skillName)) {
+                return;
+            }
+        }
+        animal.addSkill(new Skill(skillName, skillDescription));
+    }
 }
