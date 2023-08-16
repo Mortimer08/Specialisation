@@ -57,4 +57,8 @@ public class Model {
     public String getAnimal(Integer animalNumber) {
         return animalRegistry.getAnimalMap().get(animalNumber).toString();
     }
+
+    public String performSkill(Integer skillNumber) {
+        return animalRegistry.getCurrentAnimal().getSkills().get(skillNumber).toString();
+    }
 }

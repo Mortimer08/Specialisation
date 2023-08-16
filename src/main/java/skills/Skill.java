@@ -31,6 +31,17 @@ public class Skill {
 
     @Override
     public boolean equals(Object obj) {
-        return  (obj.getClass() == this.getClass()) && (this.skillName.equals(((Skill) obj).getSkillName()));
+        return (obj.getClass() == this.getClass()) && (this.skillName.equals(((Skill) obj).getSkillName()));
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder skillString = new StringBuilder();
+        skillString.append(this.skillName);
+        skillString.append(" = ");
+        skillString.append(this.skillDescription);
+        skillString.append("\n");
+        return skillString.toString();
+
     }
 }

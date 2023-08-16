@@ -29,10 +29,16 @@ public class Presenter {
     public String getAnimals() {
         return model.getAnimals();
     }
-    public void setCurrentAnimal(Integer animalNumber){
+
+    public void setCurrentAnimal(Integer animalNumber) {
         model.setCurrentAnimal(animalNumber);
     }
-    public String getAnimal(Integer animalNumber){
+
+    public String getAnimal(Integer animalNumber) {
         return model.getAnimal(animalNumber);
+    }
+
+    public String performSkill(Integer skillNumber) {
+        return model.performSkill(skillNumber);
     }
 }
