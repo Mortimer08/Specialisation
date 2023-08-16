@@ -14,6 +14,7 @@ public class RegistryObject implements Registry {
     final HashMap<Integer, Animal> registryMap = new HashMap<>();
     final ArrayList<Animal> registry = new ArrayList<>();
     final ArrayList<AnimalGroup> groups = new ArrayList<>();
+    public Animal currentAnimal;
 
     public RegistryObject() {
         AnimalGroup beastOfBurden = new AnimalGroup("Beast Of Burden");
@@ -26,10 +27,6 @@ public class RegistryObject implements Registry {
         pet.addType(new AnimalType("Dog"));
         pet.addType(new AnimalType("Cat"));
         pet.addType(new AnimalType("Hamster"));
-    }
-
-    public ArrayList<Animal> getAnimalsList() {
-        return registry;
     }
 
     public HashMap<Integer, Animal> getAnimalMap() {
@@ -63,8 +60,8 @@ public class RegistryObject implements Registry {
     }
 
     @Override
-    public ArrayList<Skill> getSkillsList(Animal animal) {
-        return animal.getSkills();
+    public ArrayList<Skill> getSkillsList() {
+        return currentAnimal.getSkills();
     }
 
     public AnimalGroup getGroup(String group) {
@@ -84,13 +81,19 @@ public class RegistryObject implements Registry {
         return this.registryMap.get(number).getBirthDay();
     }
 
-    public void addSkill(Animal animal, String skillName, String skillDescription) {
-        ArrayList<Skill> skillsList = animal.getSkills();
+    public void addSkill(String skillName, String skillDescription) {
+        ArrayList<Skill> skillsList = currentAnimal.getSkills();
         for (Skill skill : skillsList) {
             if (skill.getSkillName().equals(skillName)) {
                 return;
             }
         }
-        animal.addSkill(new Skill(skillName, skillDescription));
+        currentAnimal.addSkill(new Skill(skillName, skillDescription));
+    }
+    public void setCurrentAnimal(Animal animal){
+        this.currentAnimal = animal;
+    }
+    public Animal getCurrentAnimal(){
+        return this.currentAnimal;
     }
 }

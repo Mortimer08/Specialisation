@@ -22,19 +22,20 @@ public class Model {
         animalRegistry.addAnimal(type, name);
     }
 
-    public String getAnimalSkills(Integer animalNumber) {
-        Animal animal = animalRegistry.getAnimalMap().get(animalNumber);
-        ArrayList<Skill> skills = animalRegistry.getSkillsList(animal);
+    public String getAnimalSkills() {
+        Animal animal = animalRegistry.getCurrentAnimal();
+        ArrayList<Skill> skills = animalRegistry.getSkillsList();
         StringBuilder skillsString = new StringBuilder();
+        skillsString.append(String.format("%s can:\n", animal.getName()));
         for (Skill skill : skills) {
-            skillsString.append(String.format("%s = %s\n", skill.getSkillName(), skill.getDescription()));
+            skillsString.append(String.format("\t%s = %s\n", skill.getSkillName(), skill.getDescription()));
         }
         return skillsString.toString();
     }
 
-    public void addSkill(Integer animalNumber, String skillName, String skillDescription) {
-        Animal animal = animalRegistry.getAnimalMap().get(animalNumber);
-        animalRegistry.addSkill(animal, skillName, skillDescription);
+    public void addSkill(String skillName, String skillDescription) {
+//        Animal animal = animalRegistry.getCurrentAnimal();
+        animalRegistry.addSkill(skillName, skillDescription);
     }
 
     public String getAnimals() {
@@ -47,5 +48,13 @@ public class Model {
             animalsList.append(String.format("%s%n", animal.getTypeName()));
         }
         return animalsList.toString();
+    }
+
+    public void setCurrentAnimal(Integer animalNumber) {
+        animalRegistry.setCurrentAnimal(animalRegistry.getAnimalMap().get(animalNumber));
+    }
+
+    public String getAnimal(Integer animalNumber) {
+        return animalRegistry.getAnimalMap().get(animalNumber).toString();
     }
 }

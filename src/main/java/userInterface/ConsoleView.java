@@ -1,30 +1,28 @@
 package userInterface;
 
 import mvp.Presenter;
+import userInterface.mainMenu.MainMenu;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class ConsoleView implements UserInteraction {
-    private Presenter presenter;
     public boolean keepRunning;
+    private Menu mainMenu;
+    private Scanner scanner;
+    private Presenter presenter;
 
     public ConsoleView() {
         keepRunning = true;
+        mainMenu = new MainMenu(this);
+        scanner = new Scanner(System.in);
     }
 
     public void start() {
         while (keepRunning) {
-//            System.out.println("Console View Started");
-            presenter.addAnimal("Pet", "Dog", "Polkan");
-            presenter.addAnimal("Cat", "Fluff");
-            presenter.addAnimal("Horse", "Beast");
-            presenter.addAnimal("Donkey", "Ear");
-            presenter.addAnimal("Pet", "Dog", "Polkan");
-            showAnimals();
-
-            presenter.addSkill(1,"Voice", "Saying woof");
-            showSkills(1);
-            keepRunning = false;
+            showMenu();
+            String userChoice = scan();
+            mainMenu.runCommand(Integer.parseInt(userChoice));
         }
     }
 
@@ -33,22 +31,35 @@ public class ConsoleView implements UserInteraction {
         this.presenter = presenter;
     }
 
-    /*public void showAnimalsList(ArrayList<Animal> list) {
-        int skillsNumber = 1;
-        StringBuilder animalsList = new StringBuilder();
-        for (Animal animal : list) {
-            animalsList.append(String.format("\t%d. ", skillsNumber++));
-            animalsList.append(String.format("%s, %s, ", animal.getName(), animal.getGroupName()));
-            animalsList.append(String.format("%s%n", animal.getTypeName()));
-        }
-        System.out.println("Animals in registry:");
-        System.out.println(animalsList.toString());
+    private void showMenu() {
+        System.out.println(mainMenu.consoleView());
+    }
 
-    }*/
+    private String scan() {
+        return scanner.nextLine();
+    }
+
+    public void addAnimal() {
+        presenter.addAnimal("Cat", "Fluff");
+    }
+
     public void showAnimals() {
         System.out.println(presenter.getAnimals());
     }
-    public void showSkills(Integer animalNumber){
-        System.out.println(presenter.getSkillsList(animalNumber));
+
+    public void chooseAnimal() {
+        showAnimals();
+        String userChoice = scan();
+        presenter.setCurrentAnimal(Integer.parseInt(userChoice));
+        System.out.println("You choose:");
+        System.out.println(presenter.getAnimal(Integer.parseInt(userChoice)));
+    }
+
+    public void showSkills(Integer animalNumber) {
+        System.out.println(presenter.getSkillsList());
+    }
+
+    public void exit() {
+        keepRunning = false;
     }
 }

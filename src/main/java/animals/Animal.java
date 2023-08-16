@@ -66,4 +66,14 @@ public class Animal {
     public void addSkill(Skill skill) {
         this.skills.add(skill);
     }
+    @Override
+    public String toString(){
+        StringBuilder animalString = new StringBuilder();
+        animalString.append(this.name);
+        animalString.append(", ");
+        animalString.append(this.type);
+        animalString.append(", ");
+        animalString.append(this.group);
+        return animalString.toString();
+    }
 }

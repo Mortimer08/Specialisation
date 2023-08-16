@@ -21,12 +21,12 @@ public class AnimalGroup {
         return this.name;
     }
 
-    public boolean getType(AnimalType type) {
+/*    public boolean getType(AnimalType type) {
         for (AnimalType nextType : animalTypes) {
             if (nextType.equals(type)) return true;
         }
         return false;
-    }
+    }*/
 
     public AnimalType getType(String type) {
         for (AnimalType nextType : animalTypes) {

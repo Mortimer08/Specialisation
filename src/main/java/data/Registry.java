@@ -14,11 +14,13 @@ public interface Registry {
 
     void addAnimal(String type, String name);
 
-    ArrayList<Skill> getSkillsList(Animal animal);
+    ArrayList<Skill> getSkillsList();
 
-    void addSkill(Animal animal, String skillName, String skillDescription);
+    void addSkill(String skillName, String skillDescription);
 
     public AnimalGroup getGroup(String group);
 
     HashMap<Integer, Animal> getAnimalMap();
+    void setCurrentAnimal(Animal animal);
+    Animal getCurrentAnimal();
 }

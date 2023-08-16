@@ -18,21 +18,21 @@ public class Presenter {
         model.addAnimal(type, name);
     }
 
-    public String getSkillsList(Integer animalNumber) {
-        return model.getAnimalSkills(animalNumber);
+    public String getSkillsList() {
+        return model.getAnimalSkills();
     }
 
-    public void addSkill(Integer animalNumber, String skillName, String skillDescription) {
-        model.addSkill(animalNumber, skillName, skillDescription);
+    public void addSkill(String skillName, String skillDescription) {
+        model.addSkill(skillName, skillDescription);
     }
-
-/*
-    public ArrayList<Animal> getAnimalsList() {
-        return model.getAnimalsList();
-    }
-*/
 
     public String getAnimals() {
         return model.getAnimals();
+    }
+    public void setCurrentAnimal(Integer animalNumber){
+        model.setCurrentAnimal(animalNumber);
+    }
+    public String getAnimal(Integer animalNumber){
+        return model.getAnimal(animalNumber);
     }
 }
