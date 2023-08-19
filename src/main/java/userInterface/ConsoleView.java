@@ -64,7 +64,7 @@ public class ConsoleView implements UserInteraction {
         String userChoice = scan();
         presenter.setCurrentAnimal(Integer.parseInt(userChoice));
         System.out.println("You choose:");
-        System.out.println(presenter.getAnimal(Integer.parseInt(userChoice) - 1));
+        System.out.println(presenter.getAnimal(Integer.parseInt(userChoice)));
     }
 
     public void showSkills() {

@@ -71,9 +71,9 @@ public class Animal {
         StringBuilder animalString = new StringBuilder();
         animalString.append(this.name);
         animalString.append(", ");
-        animalString.append(this.type);
+        animalString.append(this.type.getName());
         animalString.append(", ");
-        animalString.append(this.group);
+        animalString.append(this.group.getName());
         return animalString.toString();
     }
 }

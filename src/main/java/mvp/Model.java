@@ -5,6 +5,7 @@ import data.RegistryObject;
 import skills.Skill;
 import animals.Animal;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -55,7 +56,7 @@ public class Model {
     }
 
     public String getAnimal(Integer animalNumber) {
-        return animalRegistry.getAnimalMap().get(animalNumber).toString();
+        return animalRegistry.getAnimal(animalNumber).toString();
     }
 
     public String performSkill(Integer skillNumber) {

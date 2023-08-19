@@ -11,12 +11,15 @@ import java.util.HashMap;
 
 public class RegistryObject implements Registry {
     Integer animalID = 1;
-    final HashMap<Integer, Animal> registryMap = new HashMap<>();
-    final ArrayList<Animal> registry = new ArrayList<>();
+    private final HashMap<Integer, Animal> registryMap = new HashMap<>();
+    //    final ArrayList<Animal> registry = new ArrayList<>();
     final ArrayList<AnimalGroup> groups = new ArrayList<>();
     public Animal currentAnimal;
+    private FileStorage fileStorage;
 
     public RegistryObject() {
+        fileStorage = new FileStorage();
+        currentAnimal = new Animal(new AnimalType("Simple type"), new AnimalGroup("Simple Group"), "Simple Animal");
         AnimalGroup beastOfBurden = new AnimalGroup("Beast Of Burden");
         AnimalGroup pet = new AnimalGroup("Pet");
         groups.add(beastOfBurden);
@@ -35,8 +38,9 @@ public class RegistryObject implements Registry {
 
     @Override
     public void addAnimal(Animal animal) {
-        registry.add(animal);
+//        registry.add(animal);
         registryMap.put(animalID++, animal);
+        fileStorage.SaveRegistry(this);
     }
 
     public void addAnimal(String group, String type, String name) {
@@ -57,6 +61,10 @@ public class RegistryObject implements Registry {
                 this.addAnimal(new Animal(nextType, nextGroup, name));
             }
         }
+    }
+
+    public Animal getAnimal(Integer animalNumber) {
+        return registryMap.get(animalNumber);
     }
 
     @Override
@@ -89,11 +97,14 @@ public class RegistryObject implements Registry {
             }
         }
         currentAnimal.addSkill(new Skill(skillName, skillDescription));
+        fileStorage.SaveRegistry(this);
     }
-    public void setCurrentAnimal(Animal animal){
+
+    public void setCurrentAnimal(Animal animal) {
         this.currentAnimal = animal;
     }
-    public Animal getCurrentAnimal(){
+
+    public Animal getCurrentAnimal() {
         return this.currentAnimal;
     }
 }

@@ -1,0 +1,40 @@
+{
+  "currentAnimal" : {
+    "group" : {
+      "name" : "Pet"
+    },
+    "type" : {
+      "name" : "Dog"
+    },
+    "name" : "Pluto",
+    "birthDay" : null,
+    "skills" : [ {
+      "skillName" : "Voice",
+      "description" : "Make noise"
+    } ],
+    "typeName" : "Dog",
+    "groupName" : "Pet"
+  },
+  "skillsList" : [ {
+    "skillName" : "Voice",
+    "description" : "Make noise"
+  } ],
+  "animalMap" : {
+    "1" : {
+      "group" : {
+        "name" : "Pet"
+      },
+      "type" : {
+        "name" : "Dog"
+      },
+      "name" : "Pluto",
+      "birthDay" : null,
+      "skills" : [ {
+        "skillName" : "Voice",
+        "description" : "Make noise"
+      } ],
+      "typeName" : "Dog",
+      "groupName" : "Pet"
+    }
+  }
+}
