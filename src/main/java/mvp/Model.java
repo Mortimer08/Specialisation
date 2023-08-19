@@ -2,20 +2,19 @@ package mvp;
 
 import data.FileStorage;
 import data.Registry;
-import data.RegistryObject;
 import skills.Skill;
 import animals.Animal;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Model {
-    private Registry animalRegistry = new RegistryObject();
-    private FileStorage fileStorage = new FileStorage();
+    private final Registry animalRegistry;
+    private FileStorage fileStorage;
 
     public Model() {
         animalRegistry = fileStorage.LoadRegistry();
+        fileStorage = new FileStorage();
     }
 
     public void addAnimal(String group, String type, String name) {
