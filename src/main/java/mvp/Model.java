@@ -1,5 +1,6 @@
 package mvp;
 
+import data.FileStorage;
 import data.Registry;
 import data.RegistryObject;
 import skills.Skill;
@@ -10,9 +11,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Model {
-    private final Registry animalRegistry = new RegistryObject();
+    private Registry animalRegistry = new RegistryObject();
+    private FileStorage fileStorage = new FileStorage();
 
     public Model() {
+        animalRegistry = fileStorage.LoadRegistry();
     }
 
     public void addAnimal(String group, String type, String name) {
